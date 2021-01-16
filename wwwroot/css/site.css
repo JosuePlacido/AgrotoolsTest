@@ -1,0 +1,251 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+.btn-purple{
+	background-color: #550073;
+	color:antiquewhite;
+}
+.btn-purple:hover {
+	background-color: purple;
+	color: antiquewhite;
+}
+.btn-outline-purple {
+	border-color: #550073;
+	color: #550073;
+	background-color: white;
+	transform: 0.2s;
+}
+
+.btn-outline-purple:hover {
+	color: white;
+	border-color: #220055;
+	background-color: #550073;
+}
+.border-purple {
+	border-color: #550073;
+	border-left: 5px;
+}
+#questions-list{
+	max-height: 400px;
+	overflow-y: auto;
+}
+.input-validation-error,.error{
+	border-color: red;
+}
+.display,.question-item {
+	background-color: #fff;
+	filter: drop-shadow(0px 3px 3px #aaa);
+	-webkit-filter: drop-shadow(0px 3px 3px #aaa);
+	-moz-filter: drop-shadow(0px 3px 3px #aaa);
+	padding: 2rem;
+	transition: all 0.2s;
+	text-decoration: none;
+}
+.display:hover{
+	transform: scale(1.05);
+	text-decoration: none;
+	border:1px solid blueviolet;
+	filter: drop-shadow(0px 23px 23px #aaa);
+}
+.card {
+	padding: 0.5rem 0.5rem;
+	border-radius: 3px;
+	border-left: solid 3px blueviolet;
+	font-size: 80%;
+	margin: 0.5rem 0;
+}
+
+.card h3 {
+	font-family: Poppins,
+		sans-serif;
+	font-style: italic;
+	color: #300050;
+	text-transform: uppercase;
+	font-weight: 700;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.card h3 small {
+	text-transform: capitalize;
+	font-family: Nunito;
+	font-weight: normal;
+	font-style: normal;
+	color: #000
+}
+p {
+	font-family: Poppins, sans-serif;
+}
+
+p {
+	padding: 0;
+	margin: 0;
+	font-family: Nunito, sans-serif;
+	font-size: 100%;
+	color: #222;
+}
+
+p {
+	font-family: Poppins, sans-serif;
+}
+
+b,
+em,
+small,
+footer {
+	font-family: Nunito, monospace;
+}
+
+.card footer {
+	border-color: #aaa;
+	background-color: #ddd;
+	border-top: solid 1px #ddd;
+	margin: -0.5rem;
+	margin-top: 0.5rem;
+	padding: 0.5rem;
+	font-family: Poppins;
+}
+.nav-link{
+	transition: all 0.2s;
+}
+.nav-link:hover{
+	color:blueviolet;
+	text-decoration: underline;
+}
+.container-home{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 15px;
+	width:100%;
+	flex:1;
+	padding: 0 auto;
+	justify-content: center;
+	align-items: center;
+}
+.panel-quiz{
+	display: flex;
+}
+.panel-quiz  aside {
+	width: 250px;
+	display: flex;
+	align-items: flex-start;
+	border: 1px solid #aaa;
+	border-radius: 5px;
+	background-color: #e5e5e5;
+	color: blueviolet;
+}
+.panel-quiz  aside span {
+	margin: 10px 5px;
+	padding: 5px 10px;
+	border: 1px solid blueviolet;
+	color:blueviolet;
+	border-radius: 5px;
+	height:auto;
+	transition: all 0.2s;
+}
+
+.panel-quiz aside span.current {
+	margin: 10px 5px;
+	padding: 2px 7px;
+	border-width: 4px;
+}
+
+.panel-quiz aside span.done {
+	margin: 10px 5px;
+	padding: 5px 10px;
+	border: 1px solid blueviolet;
+	color:white;
+	background-color: blueviolet;
+}
+.panel-quiz  main {
+	flex: 1;
+}
+.question-item{
+	display: none;
+	transition: all 0.2s;
+	margin:10px;
+}
+.question-item.active{
+	display: block;
+}
+.question-item > h4{
+	margin-bottom: 15px;
+}
+.panel-quiz main footer {
+	padding: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.panel-quiz main footer button{
+	margin: 10px;
+}

@@ -1,0 +1,95 @@
+@model Agrotools.Models.Quiz
+@{
+	ViewData["Title"] = "Questionario";
+}
+<div class="text-center">
+ <h4 class="">Localização</h4>
+</div>
+<form method="POST" id="form-respond">
+	<input type="hidden" name="Quiz" value="@Model.Id" />
+	@Html.AntiForgeryToken()
+	<div class="panel-quiz">
+		<aside>
+			<span id="indicator-@Model.Questions[0].Number" class="current">
+				@Model.Questions[0].Number
+			</span>
+			@for (int x = 1; x < Model.Questions.Count; x++)
+			{
+				<span id="indicator-@Model.Questions[x].Number">
+					@Model.Questions[x].Number
+				</span>
+			}
+			<p></p>
+		</aside>
+		<main>
+			<article class="card question-item active">
+				<h4>
+					@Model.Questions[0].Number &nbsp;
+					@Model.Questions[0].Title
+				</h4>
+				<input type="hidden" name="QuestionId" value="@Model.Questions[0].Id" />
+				<textarea name="answer" data-val="true" data-val-required="Campo obrigatório" class="form-control"
+						  rows="6"></textarea>
+				<span class="text-danger field-validation-error" data-valmsg-for="answer"
+					  data-valmsg-replace="true"></span>
+				<div class="d-flex justify-content-center">
+					<span class="m-3">
+						<label for="Lat">Latitude</label>
+						<input type="number" step="any" name="Lat" data-val="true" data-val-required="Campo obrigatório"
+							   class="form-control" />
+						<span class="text-danger field-validation-error" data-valmsg-for="Lat"
+							  data-valmsg-replace="true"></span>
+
+					</span>
+					<span class="m-3">
+						<label for="Long">Longitude</label>
+						<input type="number" step="any" name="Long" data-val="true"
+							   data-val-required="Campo obrigatório" class="form-control" />
+						<span class="text-danger field-validation-error" data-valmsg-for="Long"
+							  data-valmsg-replace="true"></span>
+
+					</span>
+				</div>
+			</article>
+			@for (int x = 1; x < Model.Questions.Count; x++)
+			{
+				<article class="card question-item">
+					<h4>
+						@Model.Questions[x].Number &nbsp;
+						@Model.Questions[x].Title
+					</h4>
+					<input type="hidden" name="QuestionId" value="@Model.Questions[x].Id" />
+					<textarea name="answer" data-val="true" data-val-required="Campo obrigatório" class="form-control"
+							  rows="6"></textarea>
+					<span class="text-danger field-validation-error" data-valmsg-for="answer"
+						  data-valmsg-replace="true"></span>
+					<div class="d-flex justify-content-center">
+						<span class="m-3">
+							<label for="Lat">Latitude</label>
+							<input type="number" step="any" name="Lat" data-val="true" data-val-required="Campo obrigatório"
+								   class="form-control" />
+							<span class="text-danger field-validation-error" data-valmsg-for="Lat"
+								  data-valmsg-replace="true"></span>
+
+						</span>
+						<span class="m-3">
+							<label for="Long">Longitude</label>
+							<input type="number" step="any" name="Long" data-val="true"
+								   data-val-required="Campo obrigatório" class="form-control" />
+							<span class="text-danger field-validation-error" data-valmsg-for="Long"
+								  data-valmsg-replace="true"></span>
+
+						</span>
+					</div>
+				</article>
+			}
+			<footer>
+				<button id="btn-prev" type="button" class="btn btn-purple">Anterior</button>
+				<button id="btn-next" type="button" class="btn btn-purple">Próxima</button>
+			</footer>
+		</main>
+	</div>
+	<footer class="d-flex justify-content-end">
+		<input type="submit" class="btn btn-outline-purple" value="Enviar" />
+	</footer>
+</form>

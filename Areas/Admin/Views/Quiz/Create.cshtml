@@ -1,0 +1,73 @@
+@model Agrotools.Models.Quiz
+
+@{
+	ViewData["Title"] = "Create";
+	Layout = "_Layout";
+	int qtdQuestion = Model.Questions != null && Model.Questions.Count > 0 ? Model.Questions.Count : 1;
+}
+
+<h4>Criar questionário</h4>
+<hr />
+<form id="form" method="POST">
+	@Html.AntiForgeryToken()
+	<div class="row">
+		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+		<input id="question-count" type="hidden" value="@qtdQuestion" />
+		<div class="col-md-4">
+			<div class="mb-3">
+				<label asp-for="Title" class="control-label">Título</label>
+				<input asp-for="Title" class="form-control" />
+				<span asp-validation-for="Title" class="text-danger"></span>
+			</div>
+			<div class="mb-3">
+				<label asp-for="Description" class="control-label">Descrição</label>
+				<input asp-for="Description" class="form-control" />
+				<span asp-validation-for="Description" class="text-danger"></span>
+			</div>
+			<div class="mb-3">
+				<input type="submit" value="Create" class="btn btn-purple" />
+				<a class="btn btn-link" asp-action="Index">Back to List</a>
+			</div>
+		</div>
+		<div class="col-md-7">
+			<div class="mb-3">
+				<button id="btn-add-question" type="button" class="btn btn-outline-purple">
+					Adicionar pergunta
+				</button>
+			</div>
+			<div id="questions-list">
+				@if (Model.Questions != null && Model.Questions.Count > 0)
+				{
+					for (int x = 0; x < Model.Questions.Count; x++)
+					{
+						<div class="mb-3 border-bottom border-1 border-dark p-2">
+							<label for="Questions[@x].Title" class="control-label">
+								Questão
+							</label>
+							<textarea id="question-@x" name="Questions[@x].Title" data-val="true"
+									  data-val-required="Campo obrigatório" class="form-control" rows="2">@Model.Questions[x].Title</textarea>
+							<span asp-validation-for="Questions[@x].Title" class="text-danger"></span>
+							<button type="button" onclick="removeField(this,@x)" class="mt-2 btn-remove btn btn-danger">
+								Remover
+							</button>
+						</div>
+					}
+				}
+				else
+				{
+					<div class="mb-3 border-bottom border-1 border-dark p-2">
+						<label asp-for="Questions[0].Title" class="control-label">
+							Questão
+						</label>
+						<textarea id="question-0" name="Questions[0].Title" data-val="true"
+								  data-val-required="Campo obrigatório" class="form-control" rows="2"></textarea>
+						<span asp-validation-for="Questions[0].Title" class="text-danger"></span>
+						<button type="button" onclick="removeField(this,0)" class="mt-2 btn-remove btn btn-danger">
+							Remover
+						</button>
+					</div>
+				}
+			</div>
+		</div>
+	</div>
+</form>

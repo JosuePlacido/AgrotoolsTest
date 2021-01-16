@@ -1,0 +1,33 @@
+@{
+	ViewData["Title"] = "Home Page";
+}
+@model IEnumerable<Agrotools.Models.Quiz>
+<div class="text-center">
+	<h1 class="display-4">Questionários</h1>
+	<p>Para criar um questionário crie uma conta e faça login. &#128521 </p>
+</div>
+
+<div class="container-home">
+	@foreach (var quiz in Model)
+	{
+		<a asp-action="Respond" asp-route-id="@quiz.Id" class="display card">
+			<h3>
+				@quiz.Title
+				<br>
+				<small>
+					@quiz.Questions.Count perguntas
+				</small>
+			</h3>
+			<p>
+				@quiz.Description
+			</p>
+			<footer>
+				<p>
+					Criado por: @quiz.Owner.Name <br />
+					@quiz.CreatedAt
+				</p>
+			</footer>
+
+		</a>
+	}
+</div>
